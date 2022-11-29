@@ -1,4 +1,21 @@
 const container = document.querySelector(".container");
+const header = document.querySelector("header");
+
+// let optionsIntersection = {
+//   root: container,
+//   threshold: 1.0,
+// };
+
+// const callback = function (entries, observer) {
+//   entries.forEach((entry) => {
+//     console.log(entry);
+//     if (entry.isIntersecting) console.log("hi");
+//   });
+// };
+
+// let observer = new IntersectionObserver(callback, optionsIntersection);
+
+// observer.observe(header);
 
 const renderData = async function (data) {
   data.data.Page.media.forEach(async (img) => {
