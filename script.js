@@ -1,4 +1,5 @@
 const container = document.querySelector(".container");
+const container1 = document.querySelector(".container1");
 const header = document.querySelector("header");
 
 // query scheme
@@ -23,6 +24,9 @@ trending: Page(perPage: 10) {
         english
         native
       }
+      coverImage {
+extraLarge
+}	 
     }
   }
 	  	}
@@ -57,7 +61,7 @@ const url = "https://graphql.anilist.co",
 // let observer = new IntersectionObserver(callback, optionsIntersection);
 
 const renderData = function (data) {
-  data.data.trending.media.forEach((img) => {
+  data.data.trending.media.forEach((img, i) => {
     const html = `
 		<div>
 			<img src="${img.coverImage.extraLarge}"></img>
@@ -67,14 +71,27 @@ const renderData = function (data) {
   });
 };
 
+const renderTopAnimes = function (data) {
+  data.data.top.media.forEach((img, i) => {
+    const html = `
+           	<div> 
+			<img src="${img.coverImage.extraLarge}"></img>
+			<div><span>${i + 1}</span></div>
+		</div>
+		`;
+    container1.insertAdjacentHTML("beforeend", html);
+  });
+};
+
 const getData = async function () {
   try {
     const response = await fetch(url, options);
     const data = await response.json();
     console.log(data);
     renderData(data);
+    renderTopAnimes(data);
   } catch (err) {
-    console.err(err);
+    console.error(err);
   }
 };
 
