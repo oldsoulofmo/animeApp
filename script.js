@@ -2,8 +2,9 @@ const container = document.querySelector(".container");
 const header = document.querySelector("header");
 
 // query scheme
-const query = `{
-  Page(perPage: 10) {
+const query = `
+	{
+trending: Page(perPage: 10) {
     media(type: ANIME, sort: [TRENDING_DESC]) {
       id
       title {
@@ -11,11 +12,20 @@ const query = `{
         native
       }
       coverImage {
-	extraLarge
+        extraLarge
       }
     }
   }
-}
+  top: Page(perPage: 10) {
+    media(type: ANIME, sort: [SCORE_DESC]) {
+      averageScore
+      title {
+        english
+        native
+      }
+    }
+  }
+	  	}
 
 `;
 
@@ -46,8 +56,8 @@ const url = "https://graphql.anilist.co",
 
 // let observer = new IntersectionObserver(callback, optionsIntersection);
 
-const renderData = async function (data) {
-  data.data.Page.media.forEach(async (img) => {
+const renderData = function (data) {
+  data.data.trending.media.forEach((img) => {
     const html = `
 		<div>
 			<img src="${img.coverImage.extraLarge}"></img>

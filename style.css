@@ -30,6 +30,7 @@ header {
   column-gap: 400px;
   align-items: center;
   color: #fff;
+  z-index: 1;
 }
 
 ul {
@@ -70,6 +71,7 @@ img {
 
 img:hover {
   transform: scale(1.05);
+  z-index: -1;
 }
 
 h4 {
