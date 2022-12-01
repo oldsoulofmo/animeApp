@@ -27,14 +27,27 @@ header {
   position: sticky;
   background: var(--bg1-color);
   display: flex;
-  column-gap: 400px;
-  align-items: center;
-  color: #fff;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  color: white;
   z-index: 1;
+}
+
+nav {
+  margin-right: 5%;
+}
+
+ion-icon {
+  color: white;
+  font-size: 2rem;
 }
 
 ul {
   list-style-type: none;
+  display: flex;
+  justify-content: center;
+  column-gap: 10px;
 }
 
 li {
@@ -54,7 +67,7 @@ li {
   width: 100%;
   justify-items: center;
   column-gap: 0.8em;
-  row-gap: 3em;
+  row-gap: 0.8em;
   margin: 0 5%;
 }
 
@@ -81,7 +94,7 @@ h4 {
 
 h4 > span {
   background-color: var(--bg1-color);
-  color: #ffe6a7;
+  color: #fff;
   font-weight: lighter;
   padding: 0.2em;
 }
@@ -106,4 +119,16 @@ img {
   height: 100%;
   object-fit: cover;
   cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  ion-icon {
+    color: #fff;
+  }
+}
+
+@media (min-width: 1000px) {
+  ion-icon:hover {
+    color: #fcddb0;
+  }
 }
