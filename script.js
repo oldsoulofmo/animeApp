@@ -13,7 +13,9 @@ trending: Page(perPage: 10) {
         native
       }
       coverImage {
-        extraLarge
+	medium
+	large
+	extraLarge
       }
     }
   }
@@ -25,7 +27,9 @@ trending: Page(perPage: 10) {
         native
       }
       coverImage {
-extraLarge
+	medium
+	large
+	extraLarge
 }	 
     }
   }
@@ -63,9 +67,12 @@ const url = "https://graphql.anilist.co",
 const renderData = function (data) {
   data.data.trending.media.forEach((img, i) => {
     const html = `
-		<div>
-			<img src="${img.coverImage.extraLarge}" alt="anime pic"></img>
+	<div class="animeCard">
+		<div class="animeCover">
+			<img src="${img.coverImage.extraLarge}" srcset="${img.coverImage.large} 230w,${img.coverImage.extraLarge}, 460w" sizes="(max-width:600px) 230px,460px" alt="anime pic"></img>
 		</div>
+		<a class="animeTitle">${data.data.trending.media[i].title.english}</a>
+	</div>
 	`;
     container.insertAdjacentHTML("beforeend", html);
   });
@@ -75,7 +82,9 @@ const renderTopAnimes = function (data) {
   data.data.top.media.forEach((img, i) => {
     const html = `
            	<div> 
-			<img src="${img.coverImage.extraLarge}" alt="anime pic"></img>
+			<img src="${img.coverImage.extraLarge}" srcset="${img.coverImage.large} 230w,${
+      img.coverImage.extraLarge
+    }, 460w" sizes="(max-width:600px) 230px,460px" alt="anime pic"></img>
 			<div><span>${i + 1}</span></div>
 		</div>
 		`;

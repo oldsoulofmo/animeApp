@@ -67,13 +67,12 @@ li {
   width: 100%;
   justify-items: center;
   column-gap: 0.8em;
-  row-gap: 0.8em;
+  row-gap: 3em;
   margin: 0 5%;
 }
 
-.grid > div {
-  width: 100%;
-  height: 100%;
+.animeCover {
+  height: 80%;
 }
 
 h4 {
