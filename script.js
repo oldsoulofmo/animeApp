@@ -64,7 +64,7 @@ const renderData = function (data) {
   data.data.trending.media.forEach((img, i) => {
     const html = `
 		<div>
-			<img src="${img.coverImage.extraLarge}"></img>
+			<img src="${img.coverImage.extraLarge}" alt="anime pic"></img>
 		</div>
 	`;
     container.insertAdjacentHTML("beforeend", html);
@@ -75,7 +75,7 @@ const renderTopAnimes = function (data) {
   data.data.top.media.forEach((img, i) => {
     const html = `
            	<div> 
-			<img src="${img.coverImage.extraLarge}"></img>
+			<img src="${img.coverImage.extraLarge}" alt="anime pic"></img>
 			<div><span>${i + 1}</span></div>
 		</div>
 		`;
