@@ -12,6 +12,7 @@ trending: Page(perPage: 10) {
         english
         native
       }
+	siteUrl
       coverImage {
 	medium
 	large
@@ -26,6 +27,7 @@ trending: Page(perPage: 10) {
         english
         native
       }
+	siteUrl
       coverImage {
 	medium
 	large
@@ -69,9 +71,9 @@ const renderData = function (data) {
     const html = `
 	<div class="animeCard">
 		<div class="animeCover">
-			<img src="${img.coverImage.extraLarge}" srcset="${img.coverImage.large} 230w,${img.coverImage.extraLarge}, 460w" sizes="(max-width:600px) 230px,460px" alt="anime pic"></img>
+			<a href="${data.data.trending.media[i].siteUrl}" target="_blank"><img src="${img.coverImage.extraLarge}" srcset="${img.coverImage.large} 230w,${img.coverImage.extraLarge}, 460w" sizes="(max-width:600px) 230px,460px" alt="anime pic"></img></a>
 		</div>
-		<a class="animeTitle">${data.data.trending.media[i].title.english}</a>
+		<a href="${data.data.trending.media[i].siteUrl}" target="_blank" class="animeTitle">${data.data.trending.media[i].title.english}</a>
 	</div>
 	`;
     container.insertAdjacentHTML("beforeend", html);
@@ -81,13 +83,14 @@ const renderData = function (data) {
 const renderTopAnimes = function (data) {
   data.data.top.media.forEach((img, i) => {
     const html = `
-           	<div> 
-			<img src="${img.coverImage.extraLarge}" srcset="${img.coverImage.large} 230w,${
-      img.coverImage.extraLarge
-    }, 460w" sizes="(max-width:600px) 230px,460px" alt="anime pic"></img>
-			<div><span>${i + 1}</span></div>
+	<div class="animeCard">
+		<div class="animeCover">
+			<a href="${data.data.top.media[i].siteUrl}" target="_blank"><img src="${img.coverImage.extraLarge}" srcset="${img.coverImage.large} 230w,${img.coverImage.extraLarge}, 460w" sizes="(max-width:600px) 230px,460px" alt="anime pic"></img></a>
 		</div>
-		`;
+		<a href="${data.data.top.media[i].siteUrl}" target="_blank" class="animeTitle">${data.data.top.media[i].title.english}</a>
+	</div>
+	`;
+
     container1.insertAdjacentHTML("beforeend", html);
   });
 };
