@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Cabin&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Khojki&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla&display=swap");
 
 :root {
   box-sizing: border-box;
@@ -64,29 +65,35 @@ li {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
   width: 100%;
   justify-items: center;
   column-gap: 0.8em;
-  row-gap: 2em;
+  row-gap: 1.2em;
   margin: 0 5%;
 }
 
 .animeCard {
-  display: grid;
-  grid-template-rows: min-content auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
 }
 
 .animeCover {
-  aspect-ratio: 8/12;
+  width: 100%;
+  aspect-ratio: 9/13;
 }
-.animeTitle {
+
+a.animeTitle {
   margin-top: 10px;
   color: var(--bg1-color);
-  line-height: 1.5;
   text-decoration: none;
-  letter-spacing: 0.2px;
-  font-weight: bold;
+  word-wrap: break-word;
+  font-size: 1rem;
+  letter-spacing: 0.01px;
+  line-height: 1.2;
+  font-family: "Karla", sans-serif;
 }
 
 h4 {
@@ -131,3 +138,17 @@ img {
     color: #fcddb0;
   }
 }
+
+/*   .grid { */
+/*     display: grid; */
+/*     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); */
+/*     width: 100%; */
+/*     place-content: center; */
+/*     column-gap: 0.8em; */
+/*     row-gap: 2em; */
+/*     margin: 0 5%; */
+/*   } */
+/*   .animeCover { */
+/*     height: 160px; */
+/*   } */
+/* } */

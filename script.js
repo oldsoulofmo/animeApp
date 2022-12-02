@@ -85,7 +85,7 @@ const renderTopAnimes = function (data) {
     const html = `
 	<div class="animeCard">
 		<div class="animeCover">
-			<a href="${data.data.top.media[i].siteUrl}" target="_blank"><img src="${img.coverImage.extraLarge}" srcset="${img.coverImage.large} 230w,${img.coverImage.extraLarge}, 460w" sizes="(max-width:600px) 230px,460px" alt="anime pic"></img></a>
+		 <a href="${data.data.top.media[i].siteUrl}" target="_blank"><img src="${img.coverImage.extraLarge}" srcset="${img.coverImage.large} 230w,${img.coverImage.extraLarge}, 460w" sizes="(max-widt:600px) 230px,460px" alt="anime pic"></img></a>
 		</div>
 		<a href="${data.data.top.media[i].siteUrl}" target="_blank" class="animeTitle">${data.data.top.media[i].title.english}</a>
 	</div>
