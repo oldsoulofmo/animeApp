@@ -32,8 +32,7 @@ header {
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-  color: white;
-  z-index: 1;
+  color: #fff;
 }
 
 nav {
@@ -92,7 +91,7 @@ a.animeTitle {
   word-wrap: break-word;
   font-size: 1rem;
   letter-spacing: 0.01px;
-  line-height: 1.2;
+  line-height: 1.3;
   font-family: "Karla", sans-serif;
 }
 
@@ -117,6 +116,7 @@ h4 > span {
   color: #fff;
   font-weight: lighter;
   padding: 0.2em;
+  padding-top: 0;
 }
 
 img {
@@ -138,17 +138,8 @@ img {
     color: #fcddb0;
   }
 }
-
-/*   .grid { */
-/*     display: grid; */
-/*     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); */
-/*     width: 100%; */
-/*     place-content: center; */
-/*     column-gap: 0.8em; */
-/*     row-gap: 2em; */
-/*     margin: 0 5%; */
-/*   } */
-/*   .animeCover { */
-/*     height: 160px; */
-/*   } */
-/* } */
+@media (min-width: 800px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
