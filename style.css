@@ -74,8 +74,6 @@ li {
 
 .animeCard {
   width: 100%;
-  display: flex;
-  flex-direction: column;
 }
 
 .animeCover {
@@ -90,7 +88,6 @@ a.animeTitle {
   word-wrap: break-word;
   font-size: 1rem;
   letter-spacing: 0.01px;
-  line-height: 1.3;
   font-family: "Karla", sans-serif;
 }
 
