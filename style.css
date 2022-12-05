@@ -24,9 +24,10 @@
 }
 
 header {
+  position: sticky;
+  background-color: transparent;
   top: 0;
   height: 50px;
-  position: sticky;
   background: var(--bg1-color);
   display: flex;
   flex-direction: column;

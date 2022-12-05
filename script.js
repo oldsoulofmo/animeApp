@@ -1,6 +1,9 @@
 const container = document.querySelector(".container");
 const container1 = document.querySelector(".container1");
 const header = document.querySelector("header");
+const main = document.querySelector("main");
+const section1 = document.querySelector(".section1");
+const h4 = document.querySelector("#trending");
 
 // query scheme
 const query = `
@@ -52,19 +55,24 @@ const url = "https://graphql.anilist.co",
     }),
   };
 
-// let optionsIntersection = {
-//   root: container,
-//   threshold: 1.0,
-// };
+let optionsIntersection = {
+  root: null,
+  threshold: 1,
+  rootMargin: "-33px 0px 0px 0px",
+};
 
-// const callback = function (entries, observer) {
-//   entries.forEach((entry) => {
-//     console.log(entry);
-//     if (entry.isIntersecting) console.log("hi");
-//   });
-// };
+const callback = function (entries) {
+  const [entry] = entries;
+  console.log(entry);
+  if (!entry.isIntersecting) {
+    header.style.opacity = 0.6;
+  } else {
+    header.style.opacity = "";
+  }
+};
 
-// let observer = new IntersectionObserver(callback, optionsIntersection);
+let observer = new IntersectionObserver(callback, optionsIntersection);
+observer.observe(h4);
 
 const renderData = function (data) {
   data.data.trending.media.forEach((img, i) => {
