@@ -58,7 +58,7 @@ const url = "https://graphql.anilist.co",
 let optionsIntersection = {
   root: null,
   threshold: 1,
-  rootMargin: "-33px 0px 0px 0px",
+  rootMargin: "-36px 0px 0px 0px",
 };
 
 const callback = function (entries) {
