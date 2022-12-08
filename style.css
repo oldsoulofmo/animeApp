@@ -57,7 +57,8 @@ li {
 }
 
 .section1,
-.section2 {
+.section2,
+.section3 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,6 +109,11 @@ h4 {
   margin-bottom: 22px;
 }
 
+#scope {
+  margin-top: 2em;
+  margin-bottom: 22px;
+}
+
 h4 > span {
   background-color: var(--bg1-color);
   color: #fff;
@@ -124,6 +130,62 @@ img {
   display: block;
 }
 
+.flex-container {
+  display: flex;
+  width: 100%;
+  margin: 0 5%;
+  margin-bottom: 200px;
+  font-size: 1rem;
+  font-family: "Karla", sans-serif;
+}
+
+#airings {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  row-gap: 1rem;
+}
+
+.airing1 {
+  display: flex;
+  padding: 10px;
+  width: 100%;
+  background-color: #faedcd;
+  align-items: center;
+}
+
+.airing1 > img {
+  width: 50px;
+  height: 80px;
+}
+
+.info {
+  display: flex;
+  margin: 0 2rem;
+  width: 100%;
+  justify-content: space-between;
+  line-height: 1.5;
+  letter-spacing: 0.01px;
+}
+
+.info-1 {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+
+.info-2 {
+  display: flex;
+  width: 20%;
+  flex-direction: column;
+}
+
+.info-3 {
+  display: flex;
+  flex-direction: column;
+}
+
 @media (max-width: 1000px) {
   ion-icon {
     color: #fff;
@@ -138,5 +200,19 @@ img {
 @media (min-width: 800px) {
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 500px) {
+  .info {
+    flex-direction: column;
+    gap: 40px;
+    font-size: 0.8rem;
+  }
+  .info > div {
+    width: 100%;
+  }
+  .flex-container {
+    width: 100%;
   }
 }

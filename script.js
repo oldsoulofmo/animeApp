@@ -4,6 +4,7 @@ const header = document.querySelector("header");
 const main = document.querySelector("main");
 const section1 = document.querySelector(".section1");
 const h4 = document.querySelector("#trending");
+const airings = document.querySelector("#airings");
 
 // query scheme
 const query = `
@@ -21,6 +22,19 @@ trending: Page(perPage: 10) {
 	large
 	extraLarge
       }
+      genres
+      startDate {
+        year
+        month
+        day
+      }
+      status 
+      format
+      nextAiringEpisode {
+        timeUntilAiring
+      }
+      averageScore
+      countryOfOrigin
     }
   }
   top: Page(perPage: 10) {
@@ -103,6 +117,35 @@ const renderTopAnimes = function (data) {
   });
 };
 
+const scopeRenderer = function (data) {
+  data.data.trending.media.forEach((el) => {
+    console.log(el);
+    const html = `
+            <div class="airing1">
+              <img src=${el.coverImage.medium} alt="" />
+              <div class="info">
+                <div class="info-1">
+                  <span>${el.title.english}</span>
+                  <span>${el.title.native}</span>
+                  <span>${el.format}</span>
+                </div>
+                <div class="info-2">
+                  <span>${el.startDate.day} / ${el.startDate.month} / ${el.startDate.year} <em>(start date)</em> </span>
+                  <span>${el.status} <em>(status)</em> </span>
+                  <span>${el.genres[0]} / ${el.genres[1]} </span>
+                </div>
+                <div class="info-3">
+                  <span>${el.nextAiringEpisode.timeUntilAiring} <em>(next episode)</em> </span>
+                  <span>${el.averageScore} <em>(average score)</em> </span>
+                  <span>${el.countryOfOrigin} <em>(country of origin)</em> </span>
+                </div>
+              </div>
+	   </div>
+		`;
+    airings.insertAdjacentHTML("beforeend", html);
+  });
+};
+
 const getData = async function () {
   try {
     const response = await fetch(url, options);
@@ -110,6 +153,7 @@ const getData = async function () {
     console.log(data);
     renderData(data);
     renderTopAnimes(data);
+    scopeRenderer(data);
   } catch (err) {
     console.error(err);
   }
