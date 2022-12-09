@@ -134,7 +134,6 @@ img {
   display: flex;
   width: 100%;
   margin: 0 5%;
-  margin-bottom: 200px;
   font-size: 1rem;
   font-family: "Karla", sans-serif;
 }
@@ -186,6 +185,26 @@ img {
   flex-direction: column;
 }
 
+footer {
+  height: 50px;
+  margin-top: 44px;
+  background-color: var(--bg1-color);
+  color: #fcddb0;
+  font-family: "Karla", sans-serif;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer span::before {
+  content: "</ ";
+}
+
+footer span::after {
+  content: " >";
+}
+
 @media (max-width: 1000px) {
   ion-icon {
     color: #fff;
@@ -208,11 +227,13 @@ img {
     flex-direction: column;
     gap: 40px;
     font-size: 0.8rem;
+    /* align-items: center; */
   }
   .info > div {
     width: 100%;
+    align-items: center;
   }
-  .flex-container {
-    width: 100%;
+  .airing1 > img {
+    align-self: flex-start;
   }
 }
